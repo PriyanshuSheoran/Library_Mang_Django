@@ -50,93 +50,177 @@ library_manag_django/ # Project root
 - PostgreSQL (recommended) or SQLite
 
 ## Installation
-
-1. **Clone the repository**
+**Clone the repository**
    ```bash
    git clone https://github.com/yourusername/library-management-drf.git
    cd library-management-drf
-Set up virtual environment
+Setup Virtual Environment
 
-bash
-Copy
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies
 
-bash
-Copy
+Install Dependencies
+
 pip install -r requirements.txt
-Database setup
 
-bash
-Copy
+Database Setup
+
 python manage.py migrate
-Create superuser
 
-bash
-Copy
+Create Superuser
+
 python manage.py createsuperuser
-Run development server
 
-bash
-Copy
+Run Development Server
+
 python manage.py runserver
+
 API Endpoints
+
 Authentication
-Endpoint	Method	Description
-/auth/signup	POST	User registration
-/auth/login	POST	Get JWT tokens
-/auth/refresh	POST	Refresh access token
-/auth/logout	POST	Invalidate refresh token
-/auth/me	GET	Get current user details
-/auth/me	PUT	Update user details
-Admin Endpoints (Require admin privileges)
-Endpoint	Method	Description
-/admin/books	GET	List all books
-/admin/books	POST	Add new book
-/admin/books/{id}	GET	Get book details
-/admin/books/{id}	PUT	Update book
-/admin/books/{id}	DELETE	Delete book
-/admin/borrowed-books	GET	List all borrowed books
+
+Endpoint
+
+Method
+
+Description
+
+/auth/signup
+
+POST
+
+User registration
+
+/auth/login
+
+POST
+
+Get JWT tokens
+
+/auth/refresh
+
+POST
+
+Refresh access token
+
+/auth/logout
+
+POST
+
+Invalidate refresh token
+
+/auth/me
+
+GET
+
+Get current user details
+
+/auth/me
+
+PUT
+
+Update user details
+
+Admin Endpoints (Require Admin Privileges)
+
+Endpoint
+
+Method
+
+Description
+
+/admin/books
+
+GET
+
+List all books
+
+/admin/books
+
+POST
+
+Add new book
+
+/admin/books/{id}
+
+GET
+
+Get book details
+
+/admin/books/{id}
+
+PUT
+
+Update book
+
+/admin/books/{id}
+
+DELETE
+
+Delete book
+
+/admin/borrowed-books
+
+GET
+
+List borrowed books
+
 Models
+
 User
+
 Custom user model extending AbstractUser
 
 Role-based authentication (admin/user)
 
 Book
-Title, author, ISBN (unique)
 
-Published date, stock count
+title, author, ISBN (unique)
+
+published_date, stock_count
 
 BorrowedBook
+
 User-book relationship
 
-Borrow/return dates
+borrow_date, return_date
 
-Return status
+return_status
 
 Testing
+
 Run tests with pytest:
 
-bash
-Copy
 pytest
+
 Configuration
+
 Update settings.py for production:
 
 Set DEBUG = False
 
 Configure database (PostgreSQL recommended)
 
-Add allowed hosts
+Add ALLOWED_HOSTS
 
 Set up static files
 
 Configure JWT settings
 
+Deployment
+
+Recommended deployment options:
+
+Docker + Docker Compose
+
+Heroku
+
+AWS Elastic Beanstalk
+
+PythonAnywhere
 
 Contributing
+
 Fork the project
 
 Create your feature branch (git checkout -b feature/AmazingFeature)
@@ -148,5 +232,6 @@ Push to the branch (git push origin feature/AmazingFeature)
 Open a Pull Request
 
 License
+
 Distributed under the MIT License. See LICENSE for more information.
 
