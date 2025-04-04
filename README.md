@@ -7,231 +7,111 @@
 A RESTful API for library management with JWT authentication and role-based access control.
 
 ## Project Structure
-library_manag_django/ # Project root
-├── library/ # Main Django app
+library_manag_django/
+├── library/ # Main app
 │ ├── migrations/ # Database migrations
 │ ├── init.py
-│ ├── admin.py # Admin site configuration
-│ ├── apps.py # App configuration
-│ ├── models.py # Data models (User, Book, BorrowedBook)
+│ ├── admin.py # Admin configuration
+│ ├── apps.py # App config
+│ ├── models.py # Data models
 │ ├── serializers.py # DRF serializers
-│ ├── urls.py # App URL routes
-│ ├── views.py # View functions/classes
-│ └── tests.py # Test cases
+│ ├── tests.py # Test cases
+│ ├── urls.py # App URLs
+│ └── views.py # View logic
 │
-├── library_manag_django/ # Project configuration
+├── library_manag_django/ # Project config
 │ ├── init.py
 │ ├── asgi.py
 │ ├── settings.py # Project settings
-│ ├── urls.py # Main URL router
+│ ├── urls.py # Root URLs
 │ └── wsgi.py
 │
-├── venv/ # Virtual environment (ignored in git)
-├── .gitignore # Git ignore rules
-├── db.sqlite3 # Development database (ignored in git)
-├── manage.py # Django management script
+├── venv/ # Virtual env
+├── .gitignore
+├── db.sqlite3 # Dev database
+├── manage.py
 ├── README.md # This file
-└── requirements.txt # Project dependencies
+└── requirements.txt # Dependencies
+
+Copy
 
 ## Features
 
 - 📚 Book management (CRUD operations)
-- 👥 User authentication with JWT
-- 🔒 Role-based access control (Admin/User)
-- 📅 Book borrowing/returning system
-- 📊 Admin dashboard for management
-- ✅ Comprehensive API documentation
-
-## Prerequisites
-
-- Python 3.8+
-- Django 4.2+
-- Django REST Framework
-- PostgreSQL (recommended) or SQLite
+- 👥 JWT authentication
+- 🔒 Role-based access (Admin/User)
+- 📅 Book borrowing system
+- ✅ Comprehensive testing
 
 ## Installation
-**Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/library-management-drf.git
-   cd library-management-drf
-Setup Virtual Environment
 
+1. Clone repository:
+```bash
+git clone https://github.com/yourusername/library-management-drf.git
+cd library-management-drf
+Set up virtual environment:
+
+bash
+Copy
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
+Install dependencies:
 
-Install Dependencies
-
+bash
+Copy
 pip install -r requirements.txt
+Configure database:
 
-Database Setup
-
+bash
+Copy
 python manage.py migrate
+Create admin user:
 
-Create Superuser
-
+bash
+Copy
 python manage.py createsuperuser
+Run server:
 
-Run Development Server
-
+bash
+Copy
 python manage.py runserver
-
 API Endpoints
-
 Authentication
-
-Endpoint
-
-Method
-
-Description
-
-/auth/signup
-
-POST
-
-User registration
-
-/auth/login
-
-POST
-
-Get JWT tokens
-
-/auth/refresh
-
-POST
-
-Refresh access token
-
-/auth/logout
-
-POST
-
-Invalidate refresh token
-
-/auth/me
-
-GET
-
-Get current user details
-
-/auth/me
-
-PUT
-
-Update user details
-
-Admin Endpoints (Require Admin Privileges)
-
-Endpoint
-
-Method
-
-Description
-
-/admin/books
-
-GET
-
-List all books
-
-/admin/books
-
-POST
-
-Add new book
-
-/admin/books/{id}
-
-GET
-
-Get book details
-
-/admin/books/{id}
-
-PUT
-
-Update book
-
-/admin/books/{id}
-
-DELETE
-
-Delete book
-
-/admin/borrowed-books
-
-GET
-
-List borrowed books
-
-Models
-
-User
-
-Custom user model extending AbstractUser
-
-Role-based authentication (admin/user)
-
-Book
-
-title, author, ISBN (unique)
-
-published_date, stock_count
-
-BorrowedBook
-
-User-book relationship
-
-borrow_date, return_date
-
-return_status
-
+Endpoint	Method	Description
+/auth/signup	POST	Register user
+/auth/login	POST	Get JWT tokens
+/auth/refresh	POST	Refresh token
+/auth/logout	POST	Invalidate token
+/auth/me	GET	User details
+Admin Endpoints
+Endpoint	Method	Description
+/admin/books	GET	List books
+/admin/books	POST	Add book
+/admin/books/{id}	GET/PUT/DELETE	Book operations
+/admin/borrowed-books	GET	List borrows
 Testing
+Run tests with:
 
-Run tests with pytest:
-
+bash
+Copy
 pytest
+Test coverage:
 
-Configuration
+bash
+Copy
+pytest --cov=library --cov-report=html
+Deployment
+For production:
 
-Update settings.py for production:
-
-Set DEBUG = False
+Set DEBUG = False in settings.py
 
 Configure database (PostgreSQL recommended)
 
-Add ALLOWED_HOSTS
-
 Set up static files
 
-Configure JWT settings
-
-Deployment
-
-Recommended deployment options:
-
-Docker + Docker Compose
-
-Heroku
-
-AWS Elastic Beanstalk
-
-PythonAnywhere
-
-Contributing
-
-Fork the project
-
-Create your feature branch (git checkout -b feature/AmazingFeature)
-
-Commit your changes (git commit -m 'Add some AmazingFeature')
-
-Push to the branch (git push origin feature/AmazingFeature)
-
-Open a Pull Request
+Configure allowed hosts
 
 License
+MIT License - see LICENSE for details.
 
-Distributed under the MIT License. See LICENSE for more information.
-
+Copy
